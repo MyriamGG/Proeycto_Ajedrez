@@ -6,7 +6,7 @@ var path = require("path");
 const cookieParser = require("cookie-parser");
 
 
-require("./db.js");
+// require("./db.js");
 
 const app = express();
 
