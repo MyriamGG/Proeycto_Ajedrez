@@ -5,21 +5,21 @@ const morgan = require("morgan");
 var path = require("path");
 const cookieParser = require("cookie-parser");
 
-
-// require("./db.js");
+//requerimiento de db.js
+require("./db.js");
+//rutas
+const routes = require("./routes/index.js");
 
 const app = express();
 
-
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); //ya usa bodyparser por adentro
-app.use(express.static(path.join(__dirname, "public")));
 
-//rutas
-const routes = require("./routes/index.js");
+//urlencoded reemplaza conten-type: application/json
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.name = "API";
 
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.use(express.json()); //ya usa bodyparser por adentro
 app.use('/',routes);
 
 // Error catching endware.

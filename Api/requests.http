@@ -1,0 +1,27 @@
+###
+POST http://localhost:3000/alumno HTTP/1.1
+Content-Type: application/json
+
+{
+ "nombre": "Myriam",
+ "apellido":"Gomez",
+ "Nroescuela": 3
+}
+
+###
+GET http://localhost:3000/alumno HTTP/1.1
+
+###
+GET http://localhost:3000/alumno/64b082c98c6278ce9d841b7f HTTP/1.1
+
+###
+PUT http://localhost:3000/alumno/64adcf4f17f1725ff22751a1 HTTP/1.1
+
+{
+ "nombre": "Raul Eduardo",
+ "apellido":"Perez",
+ "Nroescuela": 3
+}
+
+###
+DELETE http://localhost:3000/alumno/64b082c98c6278ce9d841b7f HTTP/1.1
