@@ -1,4 +1,4 @@
-const {Router} = requier('express');
+const {Router} = require('express');
 const router = Router();
 
 const {
@@ -23,3 +23,5 @@ router.put("/alumno/:id", Actualizar_Alumnos);
 
 // Delete
 router.delete("/alumno/:id", Borrar_Alumnos);
+
+module.exports = router;
